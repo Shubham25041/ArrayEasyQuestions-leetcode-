@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int finalValueAfterOperations(vector<string>& operations) {
+        int sum=0;
+        for(const string& c : operations){   // Here string& declares c as a reference to string, const ensures that we don't change
+            if(c == "--X" || c == "X--"){    // anything while iterating
+                sum -= 1;
+            }
+            else if(c == "X++" || c == "++X"){
+                sum += 1;
+            }
+        }
+        return sum;
+    }
+};
+
+                                                                                                // OR
+
+class Solution {
+public:
+    int finalValueAfterOperations(vector<string>& operations) {
+        int count = 0;
+        for(auto i : operations){
+            if(i[1] == '+'){
+                count++;
+            }
+            else{
+                count--;
+            }
+        }
+        return count;
+    }
+};
