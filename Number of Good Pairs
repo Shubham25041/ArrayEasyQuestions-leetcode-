@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int numIdenticalPairs(vector<int>& nums) {
+        int count=0;
+        for(int i=0; i<nums.size(); i++){
+            for(int j=i+1; j<nums.size(); j++){
+                if(nums[i] == nums[j]){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+};
+
+                     // OR
+
+class Solution {
+public:
+    int numIdenticalPairs(std::vector<int>& nums) {
+        int count[101] = {0}; // Array to store the count of occurrences of each number
+        int goodPairs = 0;
+
+        // Count the occurrences of each number
+        for (int num : nums) {
+            count[num]++;
+        }
+
+        // Calculate the number of good pairs for each number
+        for (int i = 1; i <= 100; ++i) {
+            int numOccurrences = count[i];
+            if (numOccurrences > 1) {
+                goodPairs += (numOccurrences * (numOccurrences - 1)) / 2;   // formula of sum of 
+            }
+        }
+
+        return goodPairs;
+    }
+};
