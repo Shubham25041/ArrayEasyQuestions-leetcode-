@@ -1,0 +1,21 @@
+#include <vector>
+
+class Solution {
+public:
+    vector<int> decompressRLElist(vector<int>& nums) {
+        vector<int> ans;
+        
+        // Loop through the compressed list by pairs
+        for (int i = 0; i < nums.size(); i += 2) {
+            int freq = nums[i];  // Frequency of the value
+            int val = nums[i + 1];  // Value
+            
+            // Add 'freq' copies of 'val' to the decompressed list
+            for (int j = 0; j < freq; j++) {
+                ans.push_back(val);
+            }
+        }
+
+        return ans;
+    }
+};
