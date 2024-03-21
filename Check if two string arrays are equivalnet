@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
+        string concatenate1 = "";
+        string concatenate2 = "";
+
+        // Concatenate strings from word1
+        for (auto s : word1) {
+            concatenate1 += s;
+        }
+
+        // Concatenate strings from word2
+        for (auto s : word2) {
+            concatenate2 += s;
+        }
+
+        // Compare concatenated strings
+        return concatenate1 == concatenate2;
+    }
+};
