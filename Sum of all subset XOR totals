@@ -1,0 +1,20 @@
+class Solution {
+public:
+
+    int totalsum(vector<int>&nums, int index, int currentSum){
+        if(index == nums.size())
+        return currentSum;
+
+        // Include current element in XOR calculation
+        int includeCurrent = totalsum(nums, index+1, currentSum ^ nums[index]);
+
+        // Exclude current element in XOR calculation
+        int excludeCurrent = totalsum(nums, index+1, currentSum);
+
+        return includeCurrent + excludeCurrent;
+    }
+
+    int subsetXORSum(vector<int>& nums) {
+        return totalsum(nums, 0, 0);
+    }
+};
