@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
+        // Map to store names sorted by height in descendin order
+        map<int, vector<string>, greater<int>> map; 
+
+        // Insert element in the map
+        for(int i=0; i<names.size(); i++){
+            map[heights[i]].push_back(names[i]);
+        }
+
+        vector<string> result;
+        
+        // Insert element in the map
+        for(auto it = map.begin(); it != map.end(); it++){
+            for(const string& name: it->second){
+                result.push_back(name);
+            }
+        }
+
+        return result;
+
+    }
+};
