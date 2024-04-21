@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int countGoodRectangles(vector<vector<int>>& rectangles) {
+        int maxlen = 0;
+        int count = 0;
+        for(auto rect : rectangles){
+            int length = rect[0];
+            int width = rect[1];
+
+            int len = min(length,width);  // square length we can make form the given rectangle
+            maxlen = max(maxlen,len);
+        }
+
+        for(auto rect : rectangles){
+            int length = rect[0];
+            int width = rect[1];
+            int len = min(length, width);
+            if(len == maxlen)
+            count++;
+        }
+
+        return count;
+
+    }
+};
